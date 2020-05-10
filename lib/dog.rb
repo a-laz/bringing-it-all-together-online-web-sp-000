@@ -44,8 +44,7 @@ class Dog
       FROM dogs
       WHERE id = ?
     SQL
-    dog = DB[:conn].execute(sql, id_num)
-    binding.pry
+    dog = DB[:conn].execute(sql, id_num)[0]
     self.new(id: dog[0], name: dog[1], breed: dog[2])
   end
 
